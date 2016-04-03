@@ -2,7 +2,7 @@ github-publish:
   image: docker.onedata.org/github-publish:
   restart: always
   volumes:
-    - id_bamboo:/id_bamboo:ro
-    - onedata_github:/onedata_github:ro
-    - ~/repos:/tmp
+    - ~/.ssh/id_bamboo:/id_bamboo:ro
+    - ~/.ssh/onedata_github:/onedata_github:ro
+    - ~/github-publish-tmp-repos:/tmp
   
