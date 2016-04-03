@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ARTEFACT=github-publish.org.tar
+ARTEFACT=github-publish.tar
 if [ -f docker-compose.yml ]; then
     tar cvf $ARTEFACT --exclude .git  --exclude "$ARTEFACT" docker-compose.yml
 else
