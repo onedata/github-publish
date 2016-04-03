@@ -46,9 +46,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
-_book
 .idea
-node_modules/gitbook-plugin-styles-sass
 
 # docker image artefact
 dockerimage.report.txt
