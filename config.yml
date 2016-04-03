@@ -1,0 +1,11 @@
+op-worker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
+  dst: ssh://git@github.com/onedata/op-worker.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'

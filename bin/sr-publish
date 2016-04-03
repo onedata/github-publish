@@ -1,0 +1,173 @@
+#!/bin/bash
+# requirers bash4
+
+#
+# Author: Michal Orzechowski
+# LICENSE: MIT
+#
+# This script takes a list of branches and tags form one repo and pushes them to another.
+#
+
+# Prefixes of refspecs.
+TAG_SRC=refs/tags/
+TAG_DST=refs/tags/
+#BRANCH_SRC=refs/remotes/origin/
+BRANCH_SRC=refs/heads/
+BRANCH_DST=refs/heads/
+
+# Error handling.
+# $1 - error string
+die() {
+  echo "${0##*/}: error: $*" >&2
+  exit 1
+}
+
+# As the name suggests
+usage() {
+  echo "Usage: sr-publish  [-h] [--dry-run] [-s <path>] [--sid <path>] [--did <path>] [-b <branches> | -t <tags>] [--tmpdir <path>] -d <path>
+
+This script pushes specyfied git banches and tags from one repo to another.
+
+Example usage:
+sr-publish -s ~/my_private_repo https://github.com/me/my_public_repo -b 'master alpha beta' -t '1.0.0 2.0.0'
+
+Options:
+  -h             Print help
+  -s <path>      Path to source git repository, default is current working directory
+  --sid <path>   Path to private key, to authenticate with source repo
+  -d <path>      Url to a destination git repository
+  --did <path>   Path to private key, to authenticate with destination repo
+  -b <brances>   List of space separated branches from source repostory ex. 'master release/* beta'
+  --sid <path>   Path to private key, to authenticate with source repo
+  -t <tags>      List of space separated tags from source repostory ex. '1.0.0 2.*'
+  --dry-run      Echo git commands that will be invoked without actually executing them
+  --tmpdir       By default for each cloned source repo a new temp. directory is created. In order to prevent cloning the repo each time the script is run, you can specify the default temporary location. In that case cloned repo will not be removed by the script at the end the exectution"
+  exit 0
+}
+
+# This function modifies array ($3) of tags of branches so that the
+# $1 - prefix string for source
+# $2 - sufix string for destintion
+# $3 - array of tags, brances, commits, or anything correct in git's refspec
+make_refs() {
+ # array is a reference to array name in $3
+ local -n src="$1"
+ local -n dst="$2"
+ local -n array="$3"
+ for((i=0; i < ${#array[@]}; i++)); do
+   array[$i]=$src${array[$i]}:$dst${array[$i]}
+ done
+}
+
+main() {
+  local SOURCE_DIR=$(pwd)
+  local REMOTE_REPO
+  local branches
+  local tags
+  local flag
+  local tmpdir
+  local did
+  local sid
+  while [[ $# > 0 ]] ; do
+    flag=$1
+    case $flag in
+    -s|--src)
+      SOURCE_DIR=$2
+      shift
+      ;;
+    -d|--dest)
+      REMOTE_REPO=$2
+      shift
+      ;;
+    -b|--branches)
+      branches=($2)
+      shift
+      ;;
+     --did)
+      did=($2)
+      shift
+      ;;
+     --sid)
+      sid=($2)
+      shift
+      ;;
+     --tmpdir)
+      tmpdir=${2%/}
+      shift
+      ;;
+     -t|--tags)
+      tags=("$2")
+      shift
+      ;;
+    --dry-run)
+      dry_run=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      shift
+      ;;
+    *)
+      die "no opntion $flag"
+      ;;
+    esac
+    shift
+  done
+
+  if [[ -z ${REMOTE_REPO} ]]; then
+    die "-d flag is missing"
+  fi
+
+  if [[ -z ${branches} && -z ${tags} ]]; then
+    die "you did not specify any branches or tags, use -b or -t flags"
+  fi
+
+  make_refs TAG_SRC TAG_DST tags
+  make_refs BRANCH_SRC BRANCH_DST branches
+
+  ## If the directory does not exist lets assume that user passed some url to the repo
+  if [[ ! -d "$SOURCE_DIR" ]]; then
+    if [[ ! -z "${tmpdir}" ]]; then
+      if [[ -z ${dry_run} ]]; then
+	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR"
+      else
+        echo ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR"
+      fi
+      b=${SOURCE_DIR%/} 
+      c=${b##*/}
+      SOURCE_DIR=$tmpdir/$c
+    else
+      dir=$(mktemp -d)
+      if [[ -z ${dry_run} ]]; then
+        git clone $SOURCE_DIR $dir
+      else
+        echo git clone $SOURCE_DIR $dir
+      fi
+      SOURCE_DIR=$dir
+    fi
+
+  fi
+
+  ALL_REFSPECS=( ${tags[@]} ${branches[@]} )
+  command="ssh-add $did ; git -C $SOURCE_DIR push -f $REMOTE_REPO ${ALL_REFSPECS[@]}"
+
+  if [[ -z ${dry_run} ]]; then
+    ssh-agent bash -c "$command"
+  else
+    echo $command
+  fi
+
+  if [[ -z ${dir+x} ]]; then
+    rm -rf $dir
+  fi
+
+  if [[ ! -z ${tmpdir+x} ]]; then
+    rm -rf "$tmpdir/ssh-*"
+  fi
+}
+
+if [ $# -lt 1 ]; then
+    usage
+fi
+
+main "$@"
