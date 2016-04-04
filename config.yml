@@ -6,6 +6,95 @@ op-worker:
   branches:
    - master
    - develop
-   - release/*
+   - release/3.*
+  tags:
+    - '*'
+cluster-worker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
+  dst: ssh://git@github.com/onedata/cluster-worker.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+cluster-manager:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
+  dst: ssh://git@github.com/onedata/cluster-manager.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+ctool:
+  src: ssh://git@git.plgrid.pl:7999/vfs/ctool.git
+  dst: ssh://git@github.com/onedata/ctool.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+clproto:
+  src: ssh://git@git.plgrid.pl:7999/vfs/clproto.git
+  dst: ssh://git@github.com/onedata/clproto.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+web-client:
+  src: ssh://git@git.plgrid.pl:7999/vfs/web-client.git
+  dst: ssh://git@github.com/onedata/web-client.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+onepanel:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel.git
+  dst: ssh://git@github.com/onedata/onepanel.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+
+helpers:
+  src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
+  dst: ssh://git@github.com/onedata/helpers.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
+  tags:
+    - '*'
+oneclient:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
+  dst: ssh://git@github.com/onedata/oneclient.git
+  did: onedata_github
+  sid: id_bamboo
+  branches:
+   - master
+   - develop
+   - release/3.*
   tags:
     - '*'

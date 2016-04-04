@@ -5,4 +5,3 @@ github-publish:
     - ~/.ssh/id_bamboo:/id_bamboo:ro
     - ~/.ssh/onedata_github:/onedata_github:ro
     - ~/github-publish-tmp-repos:/tmp
-  
