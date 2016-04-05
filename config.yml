@@ -1,100 +1,299 @@
-op-worker:
-  src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
-  dst: ssh://git@github.com/onedata/op-worker.git
-  did: onedata_github
-  sid: id_bamboo
-  branches:
-   - master
-   - develop
-   - release/3.*
-  tags:
-    - '*'
-cluster-worker:
+ter-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
   dst: ssh://git@github.com/onedata/cluster-worker.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
   tags:
     - '*'
-cluster-manager:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
-  dst: ssh://git@github.com/onedata/cluster-manager.git
-  did: onedata_github
-  sid: id_bamboo
-  branches:
-   - master
-   - develop
-   - release/3.*
-  tags:
-    - '*'
+
 ctool:
   src: ssh://git@git.plgrid.pl:7999/vfs/ctool.git
   dst: ssh://git@github.com/onedata/ctool.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
+   - release/3.0.0-alpha3
+   - release/3.0.0-alpha
   tags:
     - '*'
+
+cluster-manager:       
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
+  dst: ssh://git@github.com/onedata/cluster-manager.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-alpha3
+  tags:
+    - '*'
+
+op-worker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
+  dst: ssh://git@github.com/onedata/op-worker.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
 clproto:
   src: ssh://git@git.plgrid.pl:7999/vfs/clproto.git
   dst: ssh://git@github.com/onedata/clproto.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
   tags:
     - '*'
+
 web-client:
   src: ssh://git@git.plgrid.pl:7999/vfs/web-client.git
   dst: ssh://git@github.com/onedata/web-client.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
   tags:
     - '*'
+
 onepanel:
   src: ssh://git@git.plgrid.pl:7999/vfs/onepanel.git
   dst: ssh://git@github.com/onedata/onepanel.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
   tags:
     - '*'
+
 
 helpers:
   src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
   dst: ssh://git@github.com/onedata/helpers.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
   tags:
     - '*'
+
 oneclient:
   src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
   dst: ssh://git@github.com/onedata/oneclient.git
   did: onedata_github
-  sid: id_bamboo
+  sid: onedata_github
   branches:
    - master
    - develop
-   - release/3.*
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
+prproto:
+  src: ssh://git@git.plgrid.pl:7999/vfs/prproto.git
+  dst: ssh://git@github.com/onedata/prproto.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+dao:
+  src: ssh://git@git.plgrid.pl:7999/vfs/dao.git 
+  dst: ssh://git@github.com/onedata/dao.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+bigcouchdb:
+  src: ssh://git@git.plgrid.pl:7999/vfs/bigcouchdb.git 
+  dst: ssh://git@github.com/onedata/bigcouchdb.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+luma:
+  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
+  dst: ssh://git@github.com/onedata/luma.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+
+luster-worker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
+  dst: ssh://git@github.com/onedata/cluster-worker.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
+ctool:
+  src: ssh://git@git.plgrid.pl:7999/vfs/ctool.git
+  dst: ssh://git@github.com/onedata/ctool.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-alpha3
+   - release/3.0.0-alpha2
+  tags:
+    - '*'
+
+cluster-manager:       
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
+  dst: ssh://git@github.com/onedata/cluster-manager.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-alpha3
+  tags:
+    - '*'
+
+op-worker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
+  dst: ssh://git@github.com/onedata/op-worker.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
+clproto:
+  src: ssh://git@git.plgrid.pl:7999/vfs/clproto.git
+  dst: ssh://git@github.com/onedata/clproto.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+web-client:
+  src: ssh://git@git.plgrid.pl:7999/vfs/web-client.git
+  dst: ssh://git@github.com/onedata/web-client.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+onepanel:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel.git
+  dst: ssh://git@github.com/onedata/onepanel.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
+
+helpers:
+  src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
+  dst: ssh://git@github.com/onedata/helpers.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+oneclient:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
+  dst: ssh://git@github.com/onedata/oneclient.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+   - release/3.0.0-beta2
+   - release/3.0.0-beta1
+  tags:
+    - '*'
+
+prproto:
+  src: ssh://git@git.plgrid.pl:7999/vfs/prproto.git
+  dst: ssh://git@github.com/onedata/prproto.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+dao:
+  src: ssh://git@git.plgrid.pl:7999/vfs/dao.git 
+  dst: ssh://git@github.com/onedata/dao.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
+
+bigcouchdb:
+  src: ssh://git@git.plgrid.pl:7999/vfs/bigcouchdb.git 
+  dst: ssh://git@github.com/onedata/bigcouchdb.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
   tags:
     - '*'
