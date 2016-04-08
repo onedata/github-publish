@@ -53,5 +53,6 @@ dockerimage.report.txt
 dockerimage.sha
 docker-compose.yml
 github-publish.org.tar
+github-publish.tar
 onedata_github
 id_bamboo
