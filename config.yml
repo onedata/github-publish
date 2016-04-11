@@ -120,17 +120,6 @@ prproto:
   tags:
     - '*'
 
-dao:
-  src: ssh://git@git.plgrid.pl:7999/vfs/dao.git 
-  dst: ssh://git@github.com/onedata/dao.git
-  did: onedata_github
-  sid: onedata_github
-  branches:
-   - master
-   - develop
-  tags:
-    - '*'
-
 bigcouchdb:
   src: ssh://git@git.plgrid.pl:7999/vfs/bigcouchdb.git 
   dst: ssh://git@github.com/onedata/bigcouchdb.git
