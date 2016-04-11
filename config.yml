@@ -214,4 +214,13 @@ oz-worker:
   tags:
     - '*'
 
-
+appmock:
+  src: ssh://git@git.plgrid.pl:7999/vfs/appmock.git
+  dst: ssh://git@github.com/onedata/appmock.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+    - '*'
