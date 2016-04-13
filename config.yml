@@ -198,7 +198,7 @@ oz-worker:
    - release/3.0.0-alpha
    - release/3.0.0-alpha2
    - release/3.0.0-alpha3
-   - release/3.0.0-beta
+   - release/3.0.0-beta1
    - release/3.0.0-beta2
   tags:
     - '*'
@@ -217,6 +217,18 @@ appmock:
 bamboos:
   src: ssh://git@git.plgrid.pl:7999/vfs/bamboos.git
   dst: ssh://git@github.com/onedata/bamboos.git
+  did: onedata_github
+  sid: onedata_github
+  branches:
+   - master
+   - develop
+  tags:
+   - '*'
+
+
+erlang-tls:
+  src: ssh://git@git.plgrid.pl:7999/vfs/erlang-tls.git
+  dst: ssh://git@github.com/onedata/erlang-tls.git
   did: onedata_github
   sid: onedata_github
   branches:
