@@ -1,8 +1,8 @@
 cluster-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
   dst: ssh://git@github.com/onedata/cluster-worker.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -14,8 +14,8 @@ cluster-worker:
 ctool:
   src: ssh://git@git.plgrid.pl:7999/vfs/ctool.git
   dst: ssh://git@github.com/onedata/ctool.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -27,8 +27,8 @@ ctool:
 cluster-manager:       
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
   dst: ssh://git@github.com/onedata/cluster-manager.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -39,8 +39,8 @@ cluster-manager:
 op-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
   dst: ssh://git@github.com/onedata/op-worker.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -52,8 +52,8 @@ op-worker:
 clproto:
   src: ssh://git@git.plgrid.pl:7999/vfs/clproto.git
   dst: ssh://git@github.com/onedata/clproto.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -63,8 +63,8 @@ clproto:
 web-client:
   src: ssh://git@git.plgrid.pl:7999/vfs/web-client.git
   dst: ssh://git@github.com/onedata/web-client.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -74,8 +74,8 @@ web-client:
 onepanel:
   src: ssh://git@git.plgrid.pl:7999/vfs/onepanel.git
   dst: ssh://git@github.com/onedata/onepanel.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -88,8 +88,8 @@ onepanel:
 helpers:
   src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
   dst: ssh://git@github.com/onedata/helpers.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -99,8 +99,8 @@ helpers:
 oneclient:
   src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
   dst: ssh://git@github.com/onedata/oneclient.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -112,8 +112,8 @@ oneclient:
 prproto:
   src: ssh://git@git.plgrid.pl:7999/vfs/prproto.git
   dst: ssh://git@github.com/onedata/prproto.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -123,8 +123,8 @@ prproto:
 bigcouchdb:
   src: ssh://git@git.plgrid.pl:7999/vfs/bigcouchdb.git 
   dst: ssh://git@github.com/onedata/bigcouchdb.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -134,8 +134,8 @@ bigcouchdb:
 luma:
   src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
   dst: ssh://git@github.com/onedata/luma.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -145,8 +145,8 @@ luma:
 onezone:
   src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
   dst: git@github.com:onedata/onezone.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -157,8 +157,8 @@ onezone:
 onezone:
   src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
   dst: git@github.com:onedata/onezone.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -172,8 +172,8 @@ onezone:
 onedata:
   src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
   dst: git@github.com:onedata/onedata.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -190,8 +190,8 @@ onedata:
 oz-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/oz-worker.git
   dst: git@github.com:onedata/oz-worker.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -206,8 +206,8 @@ oz-worker:
 appmock:
   src: ssh://git@git.plgrid.pl:7999/vfs/appmock.git
   dst: ssh://git@github.com/onedata/appmock.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -217,8 +217,8 @@ appmock:
 bamboos:
   src: ssh://git@git.plgrid.pl:7999/vfs/bamboos.git
   dst: ssh://git@github.com/onedata/bamboos.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
@@ -229,8 +229,8 @@ bamboos:
 erlang-tls:
   src: ssh://git@git.plgrid.pl:7999/vfs/erlang-tls.git
   dst: ssh://git@github.com/onedata/erlang-tls.git
-  did: onedata_github
-  sid: onedata_github
+  did: /onedata_github
+  sid: /onedata_github
   branches:
    - master
    - develop
