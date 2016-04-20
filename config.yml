@@ -107,30 +107,6 @@ oneclient:
   tags:
     - '*'
 
-prproto:
-  src: ssh://git@git.plgrid.pl:7999/vfs/prproto.git
-  dst: ssh://git@github.com/onedata/prproto.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-   - master
-   - develop
-   - release/*
-  tags:
-    - '*'
-
-bigcouchdb:
-  src: ssh://git@git.plgrid.pl:7999/vfs/bigcouchdb.git 
-  dst: ssh://git@github.com/onedata/bigcouchdb.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-   - master
-   - develop
-   - release/*
-  tags:
-    - '*'
-
 luma:
   src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
   dst: ssh://git@github.com/onedata/luma.git
