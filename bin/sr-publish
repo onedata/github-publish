@@ -129,13 +129,14 @@ main() {
   if [[ ! -d "$SOURCE_DIR" ]]; then
     if [[ ! -z "${tmpdir}" ]]; then
       if [[ -z ${dry_run} ]]; then
-	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR"
+	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR ; "
       else
         echo ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR"
       fi
       b=${SOURCE_DIR%/} 
       c=${b##*/}
       SOURCE_DIR=$tmpdir/$c
+      ssh-agent bash -c "ssh-add $sid ; git -C $SOURCE_DIR fetch --prune --tags --all ;  "
     else
       dir=$(mktemp -d)
       if [[ -z ${dry_run} ]]; then
