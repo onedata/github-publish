@@ -210,7 +210,6 @@ docker-ceph-base:
   sid: /onedata_github
   branches:
    - master
-   - develop
    - release/*
   tags:
     - '*'
