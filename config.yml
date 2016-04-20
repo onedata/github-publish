@@ -155,7 +155,6 @@ onezone:
   tags:
     - '*'
 
-
 onezone:
   src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
   dst: git@github.com:onedata/onezone.git
@@ -168,7 +167,6 @@ onezone:
   tags:
     - '*'
 
-
 onedata:
   src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
   dst: git@github.com:onedata/onedata.git
@@ -180,8 +178,6 @@ onedata:
    - release/*
   tags:
     - '*'
-
-
 
 oz-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/oz-worker.git
@@ -219,10 +215,21 @@ bamboos:
   tags:
    - '*'
 
-
 erlang-tls:
   src: ssh://git@git.plgrid.pl:7999/vfs/erlang-tls.git
   dst: ssh://git@github.com/onedata/erlang-tls.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
+
+docker-ceph-base:
+  src: ssh://git@git.plgrid.pl:7999/vfs/docker-ceph-base.git
+  dst: ssh://git@github.com/onedata/docker-ceph-base.git
   did: /onedata_github
   sid: /onedata_github
   branches:
