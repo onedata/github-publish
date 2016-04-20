@@ -6,8 +6,7 @@ cluster-worker:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
+   - release/*
   tags:
     - '*'
 
@@ -19,8 +18,7 @@ ctool:
   branches:
    - master
    - develop
-   - release/3.0.0-alpha3
-   - release/3.0.0-alpha
+   - release/*
   tags:
     - '*'
 
@@ -32,7 +30,7 @@ cluster-manager:
   branches:
    - master
    - develop
-   - release/3.0.0-alpha3
+   - release/*
   tags:
     - '*'
 
@@ -44,8 +42,7 @@ op-worker:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
+   - release/*
   tags:
     - '*'
 
@@ -57,6 +54,7 @@ clproto:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -68,6 +66,7 @@ web-client:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -79,8 +78,7 @@ onepanel:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
+   - release/*
   tags:
     - '*'
 
@@ -93,6 +91,7 @@ helpers:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -104,8 +103,7 @@ oneclient:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
+   - release/*
   tags:
     - '*'
 
@@ -117,6 +115,7 @@ prproto:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -128,6 +127,7 @@ bigcouchdb:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -139,6 +139,7 @@ luma:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -150,6 +151,7 @@ onezone:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -162,9 +164,7 @@ onezone:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
-   - release/3.0.0-alpha3
+   - release/*
   tags:
     - '*'
 
@@ -177,11 +177,7 @@ onedata:
   branches:
    - master
    - develop
-   - release/3.0.0-beta2
-   - release/3.0.0-beta1
-   - release/3.0.0-alpha3
-   - release/3.0.0-alpha2 
-   - release/3.0.0-alpha
+   - release/*
   tags:
     - '*'
 
@@ -195,11 +191,7 @@ oz-worker:
   branches:
    - master
    - develop
-   - release/3.0.0-alpha
-   - release/3.0.0-alpha2
-   - release/3.0.0-alpha3
-   - release/3.0.0-beta1
-   - release/3.0.0-beta2
+   - release/*
   tags:
     - '*'
 
@@ -211,6 +203,7 @@ appmock:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
 
@@ -222,6 +215,7 @@ bamboos:
   branches:
    - master
    - develop
+   - release/*
   tags:
    - '*'
 
@@ -234,5 +228,6 @@ erlang-tls:
   branches:
    - master
    - develop
+   - release/*
   tags:
     - '*'
