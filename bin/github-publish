@@ -8,9 +8,8 @@ repos = yaml.load(f)
 
 for repo_name, repo in repos.iteritems():
   subprocess.call([
-  "ssh-agent",
   "bash","-c",
-  "ssh-add id_bamboo ; ssh-add onedata_github ; /bin/sr-publish -s {} -d {} -b '{}' -t '{}' --tmpdir /tmp --sid {} --did {}".format(
+  "/bin/sr-publish -s {} -d {} -b '{}' -t '{}' --tmpdir /tmp --sid {} --did {}".format(
   repo["src"],
   repo["dst"],
    '%s' % ' '.join(map(str,repo["branches"])) if 'branches' in repo else "",
