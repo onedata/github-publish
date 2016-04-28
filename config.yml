@@ -213,3 +213,16 @@ docker-ceph-base:
    - release/*
   tags:
     - '*'
+
+cluster-example:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-example.git
+  dst: ssh://git@github.com/onedata/cluster-example.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - release/*
+  tags:
+    - '*'
+
+
