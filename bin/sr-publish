@@ -136,7 +136,7 @@ main() {
       b=${SOURCE_DIR%/} 
       c=${b##*/}
       SOURCE_DIR=$tmpdir/$c
-      ssh-agent bash -c "ssh-add $sid ; git -C $SOURCE_DIR fetch origin '*:*' --tags  --prune;  "
+      ssh-agent bash -c "ssh-add $sid ; git -C $SOURCE_DIR fetch origin '*:*' -f  --tags  --prune;  "
     else
       dir=$(mktemp -d)
       if [[ -z ${dry_run} ]]; then
