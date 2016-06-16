@@ -225,4 +225,46 @@ cluster-example:
   tags:
     - '*'
 
+cluster-example:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-example.git
+  dst: ssh://git@github.com/onedata/cluster-example.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - release/*
+  tags:
+    - '*'
 
+onepanel-swagger:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel-swagger.git
+  dst: ssh://git@github.com/onedata/onepanel-swagger.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - release/*
+  tags:
+    - '*'
+
+oneprovider-swagger:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oneprovider-swagger.git
+  dst: ssh://git@github.com/onedata/oneprovider-swagger.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - release/*
+  tags:
+    - '*'
+
+onezone-swagger:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onezone-swagger.git
+  dst: ssh://git@github.com/onedata/onezone-swagger.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - release/*
+  tags:
+    - '*'
