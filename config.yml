@@ -256,6 +256,7 @@ onezone-swagger:
    - release/*
   tags:
     - '*'
+
 gui:
   src: ssh://git@git.plgrid.pl:7999/vfs/gui.git
   dst: ssh://git@github.com/onedata/gui.git
@@ -267,6 +268,17 @@ gui:
    - release/*
   tags:
     - '*'
+
+onedata-documentation:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onedata-documentation.git
+  dst: ssh://git@github.com/onedata/onedata-documentation.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - '*'
+  tags:
+    - '*'
+
 
 # Onedata Indigo Github
 
