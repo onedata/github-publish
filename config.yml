@@ -268,3 +268,14 @@ onezone-swagger:
    - release/*
   tags:
     - '*'
+gui:
+  src: ssh://git@git.plgrid.pl:7999/vfs/gui.git
+  dst: ssh://git@github.com/onedata/gui.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
