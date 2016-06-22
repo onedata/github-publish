@@ -1,3 +1,4 @@
+# Official Onedata Github
 cluster-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
   dst: ssh://git@github.com/onedata/cluster-worker.git
@@ -82,7 +83,6 @@ onepanel:
   tags:
     - '*'
 
-
 helpers:
   src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
   dst: ssh://git@github.com/onedata/helpers.git
@@ -110,18 +110,6 @@ oneclient:
 luma:
   src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
   dst: ssh://git@github.com/onedata/luma.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-   - master
-   - develop
-   - release/*
-  tags:
-    - '*'
-
-onezone:
-  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
-  dst: git@github.com:onedata/onezone.git
   did: /onedata_github
   sid: /onedata_github
   branches:
@@ -271,6 +259,56 @@ onezone-swagger:
 gui:
   src: ssh://git@git.plgrid.pl:7999/vfs/gui.git
   dst: ssh://git@github.com/onedata/gui.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
+
+# Onedata Indigo Github
+
+oneclient:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
+  dst: ssh://git@github.com/indigo-dc/oneclient.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
+
+luma:
+  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
+  dst: ssh://git@github.com/indigo-dc/luma.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
+
+onezone:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
+  dst: git@github.com:indigo-dc/onezone.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - master
+   - develop
+   - release/*
+  tags:
+    - '*'
+
+onedata:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
+  dst: git@github.com:indigo-dc/onedata.git
   did: /onedata_github
   sid: /onedata_github
   branches:
