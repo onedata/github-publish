@@ -80,7 +80,7 @@ main() {
       shift
       ;;
     -b|--branches)
-      branches=($2)
+      branches=("$2")
       shift
       ;;
      --did)
