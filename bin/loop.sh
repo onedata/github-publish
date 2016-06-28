@@ -9,7 +9,7 @@ else
 fi
 
 while true; do
-  python bin/github-publish
+  python bin/github-publish "$ARGS"
   echo "Entering sleep for $sleep seconds"
   sleep $sleep
 done

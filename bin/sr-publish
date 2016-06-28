@@ -80,7 +80,7 @@ main() {
       shift
       ;;
     -b|--branches)
-      branches=("$2")
+      IFS=' ' read -r -a branches <<< "$2"
       shift
       ;;
      --did)
@@ -96,7 +96,7 @@ main() {
       shift
       ;;
      -t|--tags)
-      tags=("$2")
+      IFS=' ' read -r -a tags <<< "$2"
       shift
       ;;
     --dry-run)
@@ -113,7 +113,7 @@ main() {
     esac
     shift
   done
-
+ 
   if [[ -z ${REMOTE_REPO} ]]; then
     die "-d flag is missing"
   fi

@@ -2,14 +2,16 @@
 
 import yaml
 import subprocess
+import sys
 
 f = open('config.yml')
 repos = yaml.load(f)
 
+ 
 for repo_name, repo in repos.iteritems():
   subprocess.call([
   "bash","-c",
-  "/bin/sr-publish -s {} -d {} -b '{}' -t '{}' --tmpdir /tmp --sid {} --did {}".format(
+  "/bin/sr-publish {} -s {} -d {} -b '{}' -t '{}' --tmpdir /tmp --sid {} --did {}".format(" ".join(map(str,sys.argv[1:])),
   repo["src"],
   repo["dst"],
    '%s' % ' '.join(map(str,repo["branches"])) if 'branches' in repo else "",
