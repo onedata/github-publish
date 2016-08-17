@@ -129,9 +129,9 @@ main() {
   if [[ ! -d "$SOURCE_DIR" ]]; then
     if [[ ! -z "${tmpdir}" ]]; then
       if [[ -z ${dry_run} ]]; then
-	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR ; "
+	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --mirror $SOURCE_DIR ; "
       else
-        echo ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --bare $SOURCE_DIR"
+        echo ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --mirror $SOURCE_DIR"
       fi
       b=${SOURCE_DIR%/} 
       c=${b##*/}

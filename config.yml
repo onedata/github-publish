@@ -282,7 +282,7 @@ onedata-documentation:
 
 # Onedata Indigo Github
 
-oneclient:
+oneclient-idc:
   src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
   dst: ssh://git@github.com/indigo-dc/oneclient.git
   did: /onedata_github
@@ -294,7 +294,7 @@ oneclient:
   tags:
     - '*'
 
-luma:
+luma-idc:
   src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
   dst: ssh://git@github.com/indigo-dc/luma.git
   did: /onedata_github
@@ -306,7 +306,7 @@ luma:
   tags:
     - '*'
 
-onezone:
+onezone-idc:
   src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
   dst: git@github.com:indigo-dc/onezone.git
   did: /onedata_github
@@ -318,7 +318,7 @@ onezone:
   tags:
     - '*'
 
-onedata:
+onedata-idc:
   src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
   dst: git@github.com:indigo-dc/onedata.git
   did: /onedata_github
