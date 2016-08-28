@@ -279,6 +279,15 @@ onedata-documentation:
   tags:
     - '*'
 
+onedata-documentation:
+  src: ssh://git@git.plgrid.pl:7999/vfs/github-publish.git
+  dst: ssh://git@github.com/onedata/github-publish.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+   - '*'
+  tags:
+    - '*'
 
 # Onedata Indigo Github
 
