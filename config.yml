@@ -279,7 +279,7 @@ onedata-documentation:
   tags:
     - '*'
 
-onedata-documentation:
+github-publish:
   src: ssh://git@git.plgrid.pl:7999/vfs/github-publish.git
   dst: ssh://git@github.com/onedata/github-publish.git
   did: /onedata_github
