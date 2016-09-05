@@ -1,3 +1,4 @@
+---
 # Official Onedata Github
 cluster-worker:
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
@@ -5,9 +6,9 @@ cluster-worker:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -17,21 +18,21 @@ ctool:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
-cluster-manager:       
+cluster-manager:
   src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
   dst: ssh://git@github.com/onedata/cluster-manager.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -41,9 +42,9 @@ op-worker:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -53,9 +54,9 @@ clproto:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -65,9 +66,9 @@ web-client:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -77,9 +78,9 @@ onepanel:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -89,9 +90,9 @@ helpers:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -101,45 +102,45 @@ oneclient:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 luma:
-  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git
   dst: ssh://git@github.com/onedata/luma.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 onezone:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git
   dst: git@github.com:onedata/onezone.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 onedata:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git
   dst: git@github.com:onedata/onedata.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -149,9 +150,9 @@ oz-worker:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -161,9 +162,9 @@ appmock:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -173,11 +174,11 @@ bamboos:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
-   - '*'
+    - '*'
 
 erlang-tls:
   src: ssh://git@git.plgrid.pl:7999/vfs/erlang-tls.git
@@ -185,9 +186,9 @@ erlang-tls:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -197,8 +198,8 @@ docker-ceph-base:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - release/*
+    - master
+    - release/*
   tags:
     - '*'
 
@@ -208,19 +209,8 @@ cluster-example:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - release/*
-  tags:
-    - '*'
-
-cluster-example:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-example.git
-  dst: ssh://git@github.com/onedata/cluster-example.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-   - master
-   - release/*
+    - master
+    - release/*
   tags:
     - '*'
 
@@ -230,8 +220,8 @@ onepanel-swagger:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - release/*
+    - master
+    - release/*
   tags:
     - '*'
 
@@ -241,8 +231,8 @@ oneprovider-swagger:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - release/*
+    - master
+    - release/*
   tags:
     - '*'
 
@@ -252,8 +242,8 @@ onezone-swagger:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - release/*
+    - master
+    - release/*
   tags:
     - '*'
 
@@ -263,9 +253,9 @@ gui:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
@@ -275,7 +265,7 @@ onedata-documentation:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - '*'
+    - '*'
   tags:
     - '*'
 
@@ -285,7 +275,7 @@ github-publish:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - '*'
+    - '*'
   tags:
     - '*'
 
@@ -297,44 +287,44 @@ oneclient-idc:
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 luma-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git
   dst: ssh://git@github.com/indigo-dc/luma.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 onezone-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git
   dst: git@github.com:indigo-dc/onezone.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
 onedata-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git 
+  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git
   dst: git@github.com:indigo-dc/onedata.git
   did: /onedata_github
   sid: /onedata_github
   branches:
-   - master
-   - develop
-   - release/*
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
