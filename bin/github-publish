@@ -1,21 +1,48 @@
 #!/usr/bin/env python
 
-import yaml
-import subprocess
+from __future__ import print_function
+
 import sys
+import subprocess
+import yaml
+from yamllint import linter
+from yamllint.config import YamlLintConfig, YamlLintConfigError
+
+
+f = open('config.yml')
+
+print("Validating config file... ",end="")
+problems = linter.run(f,YamlLintConfig('extends: default'))
+
+has_problems=False
+found_deduplication=False
+for problem in problemroblems:
+  number_of_problems=True
+  print(problem)
+  if "duplication" in str(problem):
+    found_deduplication=True
+
+if not has_problems:
+   print('no problems found.')
+
+if found_deduplication: 
+  print("Duplicated entires in config, exitting...")
+  sys.exit(-1)
 
 f = open('config.yml')
 repos = yaml.load(f)
 
- 
+repo_num=0;
 for repo_name, repo in repos.iteritems():
+  repo_num+=1
   subprocess.call([
   "bash","-c",
-  "/bin/sr-publish {} -s {} -d {} -b '{}' -t '{}' --tmpdir /tmp --sid {} --did {}".format(" ".join(map(str,sys.argv[1:])),
+  "printf 'Processing {}/{} {}: ' ; ".format(repo_num,len(repos),repo_name)+
+  "bin/sr-publish {} -s {} -d {} -b '{}' -t '{}' --tmp-dir /tmp --src-key {} --dest-key {}".format(" ".join(map(str,sys.argv[1:])),
   repo["src"],
   repo["dst"],
    '%s' % ' '.join(map(str,repo["branches"])) if 'branches' in repo else "",
-    '%s' % ' '.join(map(str,repo["tags"])) if 'tags' in repo else "",
+   '%s' % ' '.join(map(str,repo["tags"])) if 'tags' in repo else "",
   repo["sid"],
   repo["did"])
   ])

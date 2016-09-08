@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # requirers bash4
 
 #
@@ -9,22 +9,62 @@
 #
 
 # Prefixes of refspecs.
-TAG_SRC=refs/tags/
-TAG_DST=refs/tags/
-#BRANCH_SRC=refs/remotes/origin/
-BRANCH_SRC=refs/heads/
-BRANCH_DST=refs/heads/
+tag_src=refs/tags/
+tag_dst=refs/tags/
+branch_src=refs/heads/
+branch_dst=refs/heads/
 
-# Error handling.
-# $1 - error string
-die() {
-  echo "${0##*/}: error: $*" >&2
-  exit 1
+dry_run=0
+
+colors() {
+  if [ -t 1 ] ; then 
+    def_color=$(tput sgr0)
+    red=$(tput setaf 1; tput bold)
+    green=$(tput setaf 2; tput bold)
+    yellow=$(tput setaf 3; tput bold)
+    blue=$(tput setaf 4; tput bold)
+    magneta=$(tput setaf 5; tput bold)
+    cyan=$(tput setaf 6; tput bold)
+    grey=$(tput setaf 7;)
+    grey_bold=$(tput setaf 7; tput bold)
+  else
+    def_color=''
+    red=''
+    green=''
+    yellow=''
+    blue=''
+    magneta=''
+    cyan=''
+    grey=''
+    grey_bold=''
+  fi
 }
 
+log() { [[ "${*:3}" != "" ]] && >&2 printf "%s\\n" "$1$2${*:3}$def_color" ; }
+
+warn() { [[ ${verbose_level:-0} -ge 1 ]] && log "$yellow" " >> " "$@" ; }
+debug() { [[ ${verbose_level:-0} -ge 2 ]] && log "$grey_bold" " >> " "$@" ; }
+info() { [[ ${verbose_level:-0} -ge 3 ]] && log "$grey" " >> " "$@" ; }
+
+message() { 
+  if [[ ( ${verbose_level:-0} -eq 0 ) && ( $dry_run -eq 0  ) ]] ; then
+    if (( ${#@} )); then
+      printf "%s" "$@" 
+    else
+      printf "\n" 
+    fi
+  else
+    printf " %s\n" "$@" 
+  fi
+}
+
+error() { log "$red" "" "$@" ; }
+
+die() { error "$@" ; exit 1 ; }
+
 # As the name suggests
-usage() {
-  echo "Usage: sr-publish  [-h] [--dry-run] [-s <path>] [--sid <path>] [--did <path>] [-b <branches> | -t <tags>] [--tmpdir <path>] -d <path>
+usage() { cat <<EOF
+Usage: sr-publish  [-h] [--dry-run] [-s <path>] [--src-key <path>] [--dest-key <path>] [-b <branches> | -t <tags>] [--tmpdir <path>] -d <path>
 
 This script pushes specyfied git banches and tags from one repo to another.
 
@@ -32,17 +72,55 @@ Example usage:
 sr-publish -s ~/my_private_repo https://github.com/me/my_public_repo -b 'master alpha beta' -t '1.0.0 2.0.0'
 
 Options:
-  -h             Print help
-  -s <path>      Path to source git repository, default is current working directory
-  --sid <path>   Path to private key, to authenticate with source repo
-  -d <path>      Url to a destination git repository
-  --did <path>   Path to private key, to authenticate with destination repo
-  -b <brances>   List of space separated branches from source repostory ex. 'master release/* beta'
-  --sid <path>   Path to private key, to authenticate with source repo
-  -t <tags>      List of space separated tags from source repostory ex. '1.0.0 2.*'
-  --dry-run      Echo git commands that will be invoked without actually executing them
-  --tmpdir       By default for each cloned source repo a new temp. directory is created. In order to prevent cloning the repo each time the script is run, you can specify the default temporary location. In that case cloned repo will not be removed by the script at the end the exectution"
-  exit 0
+  -h                  Print help
+  -s <path>           Path to source git repository, default is current working directory
+  --src-key <path>    Path to private key, to authenticate with source repo
+  -d <path>           Url to a destination git repository
+  --dest-key <path>   Path to private key, to authenticate with destination repo
+  -b <brances>        List of space separated branches from source repostory ex. 'master release/* beta'
+  -t <tags>           List of space separated tags from source repostory ex. '1.0.0 2.*'
+  --dry-run           Echo git commands that will be invoked without actually executing them
+  -v                  Make output more verbose
+  --tmpdir            By default for each cloned source repo a new temp. directory is created. 
+                      In order to prevent cloning the repo each time the script is run, you can specify the default temporary location. 
+                      In that case cloned repo will not be removed by the script at the end the exectution
+EOF
+}
+
+check_repo_command() {
+  local key="$1" ; local repo="$2" 
+  if (( dry_run )); then 
+    echo GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" 1>&2
+  else
+    GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" > /dev/null 2>&1 # it throws errors if there is no repo, and that's ok
+  fi
+} 
+
+clone_command() {
+  local key="$1" ; local repo="$2" ; local dir_to_clone_to="$3"
+  if (( dry_run )); then 
+    echo GIT_SSH_COMMAND="ssh -i $key" git clone --progress --mirror "$repo" "$dir_to_clone_to" 1>&2
+  else
+    GIT_SSH_COMMAND="ssh -i $key" git clone --progress --mirror "$repo" "$dir_to_clone_to" 2>&1
+  fi
+}
+
+fetch_command() {
+  local key="$1" ; local dir_with_repo="$2"
+  if (( dry_run )); then 
+    echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" fetch --progress origin '*:*' -f  --tags  --prune 1>&2
+  else
+    GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" fetch --progress origin '*:*' -f  --tags  --prune 2>&1
+  fi
+}
+
+push_command() {
+  local key="$1" ; local dir_with_repo="$2" ; local repo="$3" ; local refspecs="$4" ; local push_dry_run=$( if [[ "$4" == "dry-run" ]]; then echo "--dry-run" ; fi )
+  if (( dry_run )); then 
+    echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "$refspecs" 1>&2
+  else
+    GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "$refspecs" 2>&1
+  fi
 }
 
 # This function modifies array ($3) of tags of branches so that the
@@ -60,44 +138,54 @@ make_refs() {
 }
 
 main() {
-  local SOURCE_DIR=$(pwd)
-  local REMOTE_REPO
+  local source_repo
+  local remote_repo
   local branches
   local tags
-  local flag
   local tmpdir
-  local did
-  local sid
-  while [[ $# > 0 ]] ; do
+  local dest_key
+  local src_key
+  colors
+
+  while (( $# )) ; do
     flag=$1
     case $flag in
     -s|--src)
-      SOURCE_DIR=$2
+      source_repo=$2 
       shift
       ;;
     -d|--dest)
-      REMOTE_REPO=$2
+      remote_repo=$2
       shift
       ;;
     -b|--branches)
       IFS=' ' read -r -a branches <<< "$2"
       shift
       ;;
-     --did)
-      did=($2)
+     --dest-key)
+      dest_key=$2
       shift
       ;;
-     --sid)
-      sid=($2)
+     --src-key)
+      src_key=$2
       shift
       ;;
-     --tmpdir)
+     --tmp-dir)
       tmpdir=${2%/}
       shift
       ;;
      -t|--tags)
       IFS=' ' read -r -a tags <<< "$2"
       shift
+      ;;
+    -v)
+      verbose_level=1
+      ;;
+    -vv)
+      verbose_level=2
+      ;;
+    -vvv)
+      verbose_level=3
       ;;
     --dry-run)
       dry_run=1
@@ -108,64 +196,123 @@ main() {
       shift
       ;;
     *)
-      die "no opntion $flag"
+      die "no opntion ${flag}"
       ;;
     esac
     shift
   done
- 
-  if [[ -z ${REMOTE_REPO} ]]; then
-    die "-d flag is missing"
+  if [[ -z ${remote_repo} && -z ${source_repo} ]]; then
+    die "please specify source and destination repos"
   fi
 
   if [[ -z ${branches} && -z ${tags} ]]; then
     die "you did not specify any branches or tags, use -b or -t flags"
   fi
 
-  make_refs TAG_SRC TAG_DST tags
-  make_refs BRANCH_SRC BRANCH_DST branches
-
-  ## If the directory does not exist lets assume that user passed some url to the repo
-  if [[ ! -d "$SOURCE_DIR" ]]; then
-    if [[ ! -z "${tmpdir}" ]]; then
-      if [[ -z ${dry_run} ]]; then
-	ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --mirror $SOURCE_DIR ; "
-      else
-        echo ssh-agent bash -c "ssh-add $sid ; git -C $tmpdir/ clone --mirror $SOURCE_DIR"
-      fi
-      b=${SOURCE_DIR%/} 
-      c=${b##*/}
-      SOURCE_DIR=$tmpdir/$c
-      ssh-agent bash -c "ssh-add $sid ; git -C $SOURCE_DIR fetch origin '*:*' -f  --tags  --prune;  "
-    else
-      dir=$(mktemp -d)
-      if [[ -z ${dry_run} ]]; then
-        git clone $SOURCE_DIR $dir
-      else
-        echo git clone $SOURCE_DIR $dir
-      fi
-      SOURCE_DIR=$dir
-    fi
-
+  if [[ -z ${src_key} || ! -f ${src_key}  ]]; then
+    warn "No source key given, using ~/.ssh/id_rsa"
+    src_key=~/.ssh/id_rsa
   fi
 
-  ALL_REFSPECS=( ${tags[@]} ${branches[@]} )
-  command="ssh-add $did ; git -C $SOURCE_DIR push -f $REMOTE_REPO ${ALL_REFSPECS[@]}"
+  if [[ -z ${dest_key} || ! -f ${dest_key} ]]; then
+    warn "No destination key given, using ~/.ssh/id_rsa"
+    dest_key=~/.ssh/id_rsa
+  fi
 
-  if [[ -z ${dry_run} ]]; then
-    ssh-agent bash -c "$command"
+  make_refs tag_src tag_dst tags
+  make_refs branch_src branch_dst branches
+
+  # Check if source path contains git repo
+  info "Checking if source path $source_repo contains git repo."
+  check_repo_command "$src_key" "$source_repo"
+  if [[ $? -ne 0 ]] ; then
+    die "The source: $source_repo is not a git repository!"
   else
-    echo $command
+    info "$source_repo contains git repo"
   fi
 
-  if [[ -z ${dir+x} ]]; then
-    rm -rf $dir
+  # Check if remote path contains git repo
+  check_repo_command "$dest_key" "$remote_repo" 
+  if [[ $? -ne 0  ]] ; then
+    die "The remote: $remote_repo is not a git repository!"
+  else
+    info "$remote_repo contains git repo"
   fi
 
-  if [[ ! -z ${tmpdir+x} ]]; then
-    rm -rf "$tmpdir/ssh-*"
+  # this variable flags if repo will be cloned or just changed will be fetched
+  local need_to_clone 
+
+  info "Checking if source repository path exists on the disk"
+  # check if the source directory is local
+  if [[ -d "$source_repo" ]]; then
+      info "Source repository path exists, no need to clone it"
+      # if its local then we dont need to do anything
+      source_repo_dir=$source_repo
+  else
+    # if it's not local we need to either clone it or fetch changes
+    info "Source repository path does not exist, preparing to clone remote repo to local disk"
+
+    repo_name=${source_repo%/} # remove trailing / if there is one
+    repo_name=${repo_name##*/} # remove everything execpt part after the last /
+
+    message "Repo: $repo_name. "
+    
+    # if tmpdir is passed we assume that the user want's to cache repos for
+    # frequent synch, if not then we create tmpdir and remove it afterwards
+    if [[ -z "${tmpdir}" ]]; then
+      # no tmpdir so we create a tmpdir 
+      source_repo_dir=$(mktemp -d)
+      info "No --tmpdir flag, using a cache directory $source_repo_dir"
+      need_to_clone=1
+    else
+      source_repo_dir="$tmpdir/$repo_name"
+      info "The --tmpdir flag was specified, using a cache directory $source_repo_dir"
+      
+      info "Checking if cache directory arleady contains a git repo"
+      check_repo_command "$src_key" "$source_repo_dir"
+      if [[ $? -ne 0 ]]; then
+        need_to_clone=1
+      fi
+    fi
+      
+    if [[ -n ${need_to_clone} ]]; then
+      message "Clonning repo. "
+      info "No repo in cachce direstory, cloning source repo into directory $source_repo_dir"
+      # try to clone the repo if its not there     
+      debug "$( clone_command "$src_key" "$source_repo" "$source_repo_dir" )"
+    else
+      message "Fetching changes. "
+      info "There is already repository in $source_repo_dir, fetching changes"   
+      debug "$( fetch_command "$src_key" "$source_repo_dir" )"
+    fi
   fi
+  
+  ALL_REFSPECS=( "${tags[@]}" "${branches[@]}" )
+
+  # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
+  info "Checking if pushing is needed to $remote_repo"
+  info "${ALL_REFSPECS[@]}"
+  if [[ $( 2>&1 push_command "$dest_key" "$source_repo_dir" "$remote_repo" "${ALL_REFSPECS[@]}" "dry-run" ) = "Everything up-to-date" ]]; then
+    message "Remote repo in is ${grey_bold}up-to-date${def_color}. "
+  else
+    message "Pushing ${green}>>CHANGES<<${def_color}. "
+    # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
+    info "Pusing changes to the remote repo $remote_repo"
+    info "${ALL_REFSPECS[@]}"
+    debug "$( push_command "$dest_key" "$source_repo_dir" "$remote_repo" "${ALL_REFSPECS[@]}" )"
+
+    info "Removing cache directory $source_repo_dir"
+  fi
+
+  # if --tmpidr was not specified then lets delete the directory that resulted from mktemp
+  if [[ -z ${tmpdir+x} ]]; then
+    rm -rf "$source_repo_dir"
+  fi
+
+  message "Finished."
+  message 
 }
+
 
 if [ $# -lt 1 ]; then
     usage
