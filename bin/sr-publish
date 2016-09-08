@@ -15,6 +15,7 @@ branch_src=refs/heads/
 branch_dst=refs/heads/
 
 dry_run=0
+verbose_level=0
 
 colors() {
   if [ -t 1 ] ; then 
@@ -179,7 +180,7 @@ main() {
       shift
       ;;
     -v)
-      verbose_level=1
+      ((verbose_level+=1))
       ;;
     -vv)
       verbose_level=2
