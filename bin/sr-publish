@@ -88,39 +88,39 @@ EOF
 }
 
 check_repo_command() {
-  local key="$1" ; local repo="$2" 
-  if (( dry_run )); then 
+  local key="$1" ; local repo="$2"
+  if [[ $dry_run -eq 1 || ${verbose_level:-0} -ge 3 ]]; then 
     echo GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" 1>&2
-  else
-    GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" > /dev/null 2>&1 # it throws errors if there is no repo, and that's ok
   fi
+  (( dry_run )) && return 0
+  GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" > /dev/null 2>&1 # it throws errors if there is no repo, and that's ok
 } 
 
 clone_command() {
   local key="$1" ; local repo="$2" ; local dir_to_clone_to="$3"
-  if (( dry_run )); then 
+  if [[ $dry_run -eq 1 || ${verbose_level:-0} -ge 3 ]]; then 
     echo GIT_SSH_COMMAND="ssh -i $key" git clone --progress --mirror "$repo" "$dir_to_clone_to" 1>&2
-  else
-    GIT_SSH_COMMAND="ssh -i $key" git clone --progress --mirror "$repo" "$dir_to_clone_to" 2>&1
   fi
+  (( dry_run )) && return 0
+  GIT_SSH_COMMAND="ssh -i $key" git clone --progress --mirror "$repo" "$dir_to_clone_to" 2>&1
 }
 
 fetch_command() {
   local key="$1" ; local dir_with_repo="$2"
-  if (( dry_run )); then 
+  if [[ $dry_run -eq 1 || ${verbose_level:-0} -ge 3 ]]; then 
     echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" fetch --progress origin '*:*' -f  --tags  --prune 1>&2
-  else
-    GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" fetch --progress origin '*:*' -f  --tags  --prune 2>&1
   fi
+  (( dry_run )) && return 0 ;
+  GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" fetch --progress origin '*:*' -f  --tags  --prune 2>&1
 }
 
 push_command() {
-  local key="$1" ; local dir_with_repo="$2" ; local repo="$3" ; local refspecs="$4" ; local push_dry_run=$( if [[ "$4" == "dry-run" ]]; then echo "--dry-run" ; fi )
-  if (( dry_run )); then 
-    echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "$refspecs" 1>&2
-  else
-    GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "$refspecs" 2>&1
+  local key="$1" ; local dir_with_repo="$2" ; local repo="$3" ; local -n refspecs="$4" ; local push_dry_run=$( if [[ "$4" == "dry-run" ]]; then echo "--dry-run" ; fi )
+  if [[ $dry_run -eq 1 || ${verbose_level:-0} -ge 3 ]]; then 
+    echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "${refspecs[@]}" 1>&2
   fi
+  (( dry_run )) && return 0
+  GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "${refspecs[@]}" 2>&1
 }
 
 # This function modifies array ($3) of tags of branches so that the
@@ -292,14 +292,14 @@ main() {
   # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
   info "Checking if pushing is needed to $remote_repo"
   info "${ALL_REFSPECS[@]}"
-  if [[ $( 2>&1 push_command "$dest_key" "$source_repo_dir" "$remote_repo" "${ALL_REFSPECS[@]}" "dry-run" ) = "Everything up-to-date" ]]; then
+  if [[ $( 2>&1 push_command "$dest_key" "$source_repo_dir" "$remote_repo" ALL_REFSPECS "dry-run" ) = "Everything up-to-date" ]]; then
     message "Remote repo in is ${grey_bold}up-to-date${def_color}. "
   else
     message "Pushing ${green}>>CHANGES<<${def_color}. "
     # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
     info "Pusing changes to the remote repo $remote_repo"
     info "${ALL_REFSPECS[@]}"
-    debug "$( push_command "$dest_key" "$source_repo_dir" "$remote_repo" "${ALL_REFSPECS[@]}" )"
+    debug "$( push_command "$dest_key" "$source_repo_dir" "$remote_repo" ALL_REFSPECS )"
 
     info "Removing cache directory $source_repo_dir"
   fi
