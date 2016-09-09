@@ -16,7 +16,7 @@ problems = linter.run(f,YamlLintConfig('extends: default'))
 
 has_problems=False
 found_deduplication=False
-for problem in problemroblems:
+for problem in problems:
   number_of_problems=True
   print(problem)
   if "duplication" in str(problem):
