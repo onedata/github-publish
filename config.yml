@@ -299,6 +299,16 @@ nagios-plugins-onedata:
   tags:
     - '*'
 
+homebrew-onedata:
+  src: ssh://git@git.plgrid.pl:7999/vfs/homebrew-onedata.git
+  dst: ssh://git@github.com/onedata/homebrew-onedata.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
