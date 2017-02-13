@@ -309,6 +309,54 @@ homebrew-onedata:
   tags:
     - '*'
 
+ember-cli-onedata-common:
+  src: ssh://git@git.plgrid.pl:7999/vfs/ember-cli-onedata-common.git
+  dst: ssh://git@github.com/onedata/ember-cli-onedata-common.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+oz-gui-default:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oz-gui-default.git
+  dst: ssh://git@github.com/onedata/oz-gui-default.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+op-gui-default:
+  src: ssh://git@git.plgrid.pl:7999/vfs/op-gui-default.git
+  dst: ssh://git@github.com/onedata/op-gui-default.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+oz-gui-homepage:
+  src: ssh://git@git.plgrid.pl:7999/vfs/oz-gui-homepage.git
+  dst: ssh://git@github.com/onedata/oz-gui-homepage.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
