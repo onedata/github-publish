@@ -357,6 +357,26 @@ oz-gui-homepage:
   tags:
     - '*'
 
+docker-volume-onedata:
+  src: ssh://git@git.plgrid.pl:7999/vfs/docker-volume-onedata.git
+  dst: ssh://git@github.com/onedata/docker-volume-onedata.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - '*'
+  tags:
+    - '*'
+
+onepanel-javascript-client:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git
+  dst: ssh://git@github.com/onedata/onepanel-javascript-client.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - '*'
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
