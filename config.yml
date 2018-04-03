@@ -377,6 +377,27 @@ onepanel-javascript-client:
   tags:
     - '*'
 
+docker-openvpn-kube-for-mac:
+  src: ssh://git@git.plgrid.pl:7999/vfs/docker-openvpn-kube-for-mac.git
+  dst: ssh://git@github.com/onedata/docker-openvpn-kube-for-mac.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - '*'
+  tags:
+    - '*'
+
+cberl:
+  src: ssh://git@git.plgrid.pl:7999/vfs/cberl.git
+  dst: ssh://git@github.com/onedata/cberl.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
