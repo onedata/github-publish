@@ -398,6 +398,17 @@ cberl:
   tags:
     - '*'
 
+rest-cli-docker:
+  src: ssh://git@git.plgrid.pl:7999/vfs/rest-cli-docker.git
+  dst: ssh://git@github.com/onedata/rest-cli-docker.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
