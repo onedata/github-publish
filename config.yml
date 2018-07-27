@@ -408,6 +408,17 @@ rest-cli-docker:
     - develop
   tags:
     - '*'
+    
+onezone-gui:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onezone-gui.git
+  dst: ssh://git@github.com/onedata/onezone-gui.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
 
 # Onedata Indigo Github
 
