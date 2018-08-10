@@ -419,6 +419,17 @@ onezone-gui:
     - develop
   tags:
     - '*'
+    
+ioreplay:
+  src: ssh://git@git.plgrid.pl:7999/vfs/ioreplay.git
+  dst: ssh://git@github.com/onedata/ioreplay.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
 
 # Onedata Indigo Github
 
