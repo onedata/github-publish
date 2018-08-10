@@ -431,6 +431,17 @@ ioreplay:
   tags:
     - '*'
 
+onedata-gui-common:
+  src: ssh://git@git.plgrid.pl:7999/vfs/onedata-gui-common.git
+  dst: ssh://git@github.com/onedata/onedata-gui-common.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
