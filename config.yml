@@ -289,16 +289,6 @@ swagger-codegen-cowboy:
   tags:
     - '*'
 
-nagios-plugins-onedata:
-  src: ssh://git@git.plgrid.pl:7999/vfs/nagios-plugins-onedata.git
-  dst: ssh://git@github.com/onedata/nagios-plugins-onedata.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-  tags:
-    - '*'
-
 homebrew-onedata:
   src: ssh://git@git.plgrid.pl:7999/vfs/homebrew-onedata.git
   dst: ssh://git@github.com/onedata/homebrew-onedata.git
