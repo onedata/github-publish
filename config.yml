@@ -431,6 +431,17 @@ onedata-gui-common:
     - develop
   tags:
     - '*'
+  
+hps-b2handle:
+  src: ssh://git@git.plgrid.pl:7999/vfs/hps-b2handle.git
+  dst: ssh://git@github.com/onedata/hps-b2handle.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+  tags:
+    - '*'
+
 
 # Onedata Indigo Github
 
