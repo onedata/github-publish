@@ -442,6 +442,17 @@ hps-b2handle:
   tags:
     - '*'
 
+fs-onedatafs:
+  src: ssh://git@git.plgrid.pl:7999/vfs/fs-onedatafs.git
+  dst: ssh://git@github.com/onedata/fs-onedatafs.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*1
+  tags:
+    - '*'
 
 # Onedata Indigo Github
 
