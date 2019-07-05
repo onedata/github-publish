@@ -1,7 +1,7 @@
 ---
 # Official Onedata Github
 cluster-worker:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-worker.git
+  src: ssh://git@git.onedata.org:7999/vfs/cluster-worker.git
   dst: ssh://git@github.com/onedata/cluster-worker.git
   did: /onedata_github
   sid: /onedata_github
@@ -13,7 +13,7 @@ cluster-worker:
     - '*'
 
 ctool:
-  src: ssh://git@git.plgrid.pl:7999/vfs/ctool.git
+  src: ssh://git@git.onedata.org:7999/vfs/ctool.git
   dst: ssh://git@github.com/onedata/ctool.git
   did: /onedata_github
   sid: /onedata_github
@@ -25,7 +25,7 @@ ctool:
     - '*'
 
 cluster-manager:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-manager.git
+  src: ssh://git@git.onedata.org:7999/vfs/cluster-manager.git
   dst: ssh://git@github.com/onedata/cluster-manager.git
   did: /onedata_github
   sid: /onedata_github
@@ -37,7 +37,7 @@ cluster-manager:
     - '*'
 
 op-worker:
-  src: ssh://git@git.plgrid.pl:7999/vfs/op-worker.git
+  src: ssh://git@git.onedata.org:7999/vfs/op-worker.git
   dst: ssh://git@github.com/onedata/op-worker.git
   did: /onedata_github
   sid: /onedata_github
@@ -49,7 +49,7 @@ op-worker:
     - '*'
 
 clproto:
-  src: ssh://git@git.plgrid.pl:7999/vfs/clproto.git
+  src: ssh://git@git.onedata.org:7999/vfs/clproto.git
   dst: ssh://git@github.com/onedata/clproto.git
   did: /onedata_github
   sid: /onedata_github
@@ -61,7 +61,7 @@ clproto:
     - '*'
 
 web-client:
-  src: ssh://git@git.plgrid.pl:7999/vfs/web-client.git
+  src: ssh://git@git.onedata.org:7999/vfs/web-client.git
   dst: ssh://git@github.com/onedata/web-client.git
   did: /onedata_github
   sid: /onedata_github
@@ -73,7 +73,7 @@ web-client:
     - '*'
 
 onepanel:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel.git
+  src: ssh://git@git.onedata.org:7999/vfs/onepanel.git
   dst: ssh://git@github.com/onedata/onepanel.git
   did: /onedata_github
   sid: /onedata_github
@@ -85,7 +85,7 @@ onepanel:
     - '*'
 
 helpers:
-  src: ssh://git@git.plgrid.pl:7999/vfs/helpers.git
+  src: ssh://git@git.onedata.org:7999/vfs/helpers.git
   dst: ssh://git@github.com/onedata/helpers.git
   did: /onedata_github
   sid: /onedata_github
@@ -97,7 +97,7 @@ helpers:
     - '*'
 
 oneclient:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
+  src: ssh://git@git.onedata.org:7999/vfs/oneclient.git
   dst: ssh://git@github.com/onedata/oneclient.git
   did: /onedata_github
   sid: /onedata_github
@@ -109,7 +109,7 @@ oneclient:
     - '*'
 
 luma:
-  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git
+  src: ssh://git@git.onedata.org:7999/vfs/luma.git
   dst: ssh://git@github.com/onedata/luma.git
   did: /onedata_github
   sid: /onedata_github
@@ -121,7 +121,7 @@ luma:
     - '*'
 
 onezone:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git
+  src: ssh://git@git.onedata.org:7999/vfs/onezone.git
   dst: git@github.com:onedata/onezone.git
   did: /onedata_github
   sid: /onedata_github
@@ -133,7 +133,7 @@ onezone:
     - '*'
 
 onedata:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git
+  src: ssh://git@git.onedata.org:7999/vfs/onedata.git
   dst: git@github.com:onedata/onedata.git
   did: /onedata_github
   sid: /onedata_github
@@ -145,7 +145,7 @@ onedata:
     - '*'
 
 oz-worker:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oz-worker.git
+  src: ssh://git@git.onedata.org:7999/vfs/oz-worker.git
   dst: git@github.com:onedata/oz-worker.git
   did: /onedata_github
   sid: /onedata_github
@@ -157,7 +157,7 @@ oz-worker:
     - '*'
 
 appmock:
-  src: ssh://git@git.plgrid.pl:7999/vfs/appmock.git
+  src: ssh://git@git.onedata.org:7999/vfs/appmock.git
   dst: ssh://git@github.com/onedata/appmock.git
   did: /onedata_github
   sid: /onedata_github
@@ -169,7 +169,7 @@ appmock:
     - '*'
 
 bamboos:
-  src: ssh://git@git.plgrid.pl:7999/vfs/bamboos.git
+  src: ssh://git@git.onedata.org:7999/vfs/bamboos.git
   dst: ssh://git@github.com/onedata/bamboos.git
   did: /onedata_github
   sid: /onedata_github
@@ -181,7 +181,7 @@ bamboos:
     - '*'
 
 erlang-tls:
-  src: ssh://git@git.plgrid.pl:7999/vfs/erlang-tls.git
+  src: ssh://git@git.onedata.org:7999/vfs/erlang-tls.git
   dst: ssh://git@github.com/onedata/erlang-tls.git
   did: /onedata_github
   sid: /onedata_github
@@ -193,7 +193,7 @@ erlang-tls:
     - '*'
 
 docker-ceph-base:
-  src: ssh://git@git.plgrid.pl:7999/vfs/docker-ceph-base.git
+  src: ssh://git@git.onedata.org:7999/vfs/docker-ceph-base.git
   dst: ssh://git@github.com/onedata/docker-ceph-base.git
   did: /onedata_github
   sid: /onedata_github
@@ -204,7 +204,7 @@ docker-ceph-base:
     - '*'
 
 cluster-example:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cluster-example.git
+  src: ssh://git@git.onedata.org:7999/vfs/cluster-example.git
   dst: ssh://git@github.com/onedata/cluster-example.git
   did: /onedata_github
   sid: /onedata_github
@@ -215,7 +215,7 @@ cluster-example:
     - '*'
 
 onepanel-swagger:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel-swagger.git
+  src: ssh://git@git.onedata.org:7999/vfs/onepanel-swagger.git
   dst: ssh://git@github.com/onedata/onepanel-swagger.git
   did: /onedata_github
   sid: /onedata_github
@@ -226,7 +226,7 @@ onepanel-swagger:
     - '*'
 
 oneprovider-swagger:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oneprovider-swagger.git
+  src: ssh://git@git.onedata.org:7999/vfs/oneprovider-swagger.git
   dst: ssh://git@github.com/onedata/oneprovider-swagger.git
   did: /onedata_github
   sid: /onedata_github
@@ -237,7 +237,7 @@ oneprovider-swagger:
     - '*'
 
 onezone-swagger:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone-swagger.git
+  src: ssh://git@git.onedata.org:7999/vfs/onezone-swagger.git
   dst: ssh://git@github.com/onedata/onezone-swagger.git
   did: /onedata_github
   sid: /onedata_github
@@ -248,7 +248,7 @@ onezone-swagger:
     - '*'
 
 gui:
-  src: ssh://git@git.plgrid.pl:7999/vfs/gui.git
+  src: ssh://git@git.onedata.org:7999/vfs/gui.git
   dst: ssh://git@github.com/onedata/gui.git
   did: /onedata_github
   sid: /onedata_github
@@ -260,7 +260,7 @@ gui:
     - '*'
 
 onedata-documentation:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata-documentation.git
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-documentation.git
   dst: ssh://git@github.com/onedata/onedata-documentation.git
   did: /onedata_github
   sid: /onedata_github
@@ -270,7 +270,7 @@ onedata-documentation:
     - '*'
 
 github-publish:
-  src: ssh://git@git.plgrid.pl:7999/vfs/github-publish.git
+  src: ssh://git@git.onedata.org:7999/vfs/github-publish.git
   dst: ssh://git@github.com/onedata/github-publish.git
   did: /onedata_github
   sid: /onedata_github
@@ -280,7 +280,7 @@ github-publish:
     - '*'
 
 swagger-codegen-cowboy:
-  src: ssh://git@git.plgrid.pl:7999/vfs/swagger-codegen-cowboy.git
+  src: ssh://git@git.onedata.org:7999/vfs/swagger-codegen-cowboy.git
   dst: ssh://git@github.com/onedata/swagger-codegen-cowboy.git
   did: /onedata_github
   sid: /onedata_github
@@ -290,7 +290,7 @@ swagger-codegen-cowboy:
     - '*'
 
 homebrew-onedata:
-  src: ssh://git@git.plgrid.pl:7999/vfs/homebrew-onedata.git
+  src: ssh://git@git.onedata.org:7999/vfs/homebrew-onedata.git
   dst: ssh://git@github.com/onedata/homebrew-onedata.git
   did: /onedata_github
   sid: /onedata_github
@@ -300,7 +300,7 @@ homebrew-onedata:
     - '*'
 
 ember-cli-onedata-common:
-  src: ssh://git@git.plgrid.pl:7999/vfs/ember-cli-onedata-common.git
+  src: ssh://git@git.onedata.org:7999/vfs/ember-cli-onedata-common.git
   dst: ssh://git@github.com/onedata/ember-cli-onedata-common.git
   did: /onedata_github
   sid: /onedata_github
@@ -312,7 +312,7 @@ ember-cli-onedata-common:
     - '*'
 
 oz-gui-default:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oz-gui-default.git
+  src: ssh://git@git.onedata.org:7999/vfs/oz-gui-default.git
   dst: ssh://git@github.com/onedata/oz-gui-default.git
   did: /onedata_github
   sid: /onedata_github
@@ -324,7 +324,7 @@ oz-gui-default:
     - '*'
 
 op-gui-default:
-  src: ssh://git@git.plgrid.pl:7999/vfs/op-gui-default.git
+  src: ssh://git@git.onedata.org:7999/vfs/op-gui-default.git
   dst: ssh://git@github.com/onedata/op-gui-default.git
   did: /onedata_github
   sid: /onedata_github
@@ -336,7 +336,7 @@ op-gui-default:
     - '*'
 
 oz-gui-homepage:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oz-gui-homepage.git
+  src: ssh://git@git.onedata.org:7999/vfs/oz-gui-homepage.git
   dst: ssh://git@github.com/onedata/oz-gui-homepage.git
   did: /onedata_github
   sid: /onedata_github
@@ -348,7 +348,7 @@ oz-gui-homepage:
     - '*'
 
 docker-volume-onedata:
-  src: ssh://git@git.plgrid.pl:7999/vfs/docker-volume-onedata.git
+  src: ssh://git@git.onedata.org:7999/vfs/docker-volume-onedata.git
   dst: ssh://git@github.com/onedata/docker-volume-onedata.git
   did: /onedata_github
   sid: /onedata_github
@@ -358,7 +358,7 @@ docker-volume-onedata:
     - '*'
 
 onepanel-javascript-client:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git
+  src: ssh://git@git.onedata.org:7999/vfs/onepanel-javascript-client.git
   dst: ssh://git@github.com/onedata/onepanel-javascript-client.git
   did: /onedata_github
   sid: /onedata_github
@@ -368,7 +368,7 @@ onepanel-javascript-client:
     - '*'
 
 docker-openvpn-kube-for-mac:
-  src: ssh://git@git.plgrid.pl:7999/vfs/docker-openvpn-kube-for-mac.git
+  src: ssh://git@git.onedata.org:7999/vfs/docker-openvpn-kube-for-mac.git
   dst: ssh://git@github.com/onedata/docker-openvpn-kube-for-mac.git
   did: /onedata_github
   sid: /onedata_github
@@ -378,7 +378,7 @@ docker-openvpn-kube-for-mac:
     - '*'
 
 cberl:
-  src: ssh://git@git.plgrid.pl:7999/vfs/cberl.git
+  src: ssh://git@git.onedata.org:7999/vfs/cberl.git
   dst: ssh://git@github.com/onedata/cberl.git
   did: /onedata_github
   sid: /onedata_github
@@ -389,7 +389,7 @@ cberl:
     - '*'
 
 rest-cli-docker:
-  src: ssh://git@git.plgrid.pl:7999/vfs/rest-cli-docker.git
+  src: ssh://git@git.onedata.org:7999/vfs/rest-cli-docker.git
   dst: ssh://git@github.com/onedata/rest-cli-docker.git
   did: /onedata_github
   sid: /onedata_github
@@ -400,7 +400,7 @@ rest-cli-docker:
     - '*'
     
 onezone-gui:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone-gui.git
+  src: ssh://git@git.onedata.org:7999/vfs/onezone-gui.git
   dst: ssh://git@github.com/onedata/onezone-gui.git
   did: /onedata_github
   sid: /onedata_github
@@ -411,7 +411,7 @@ onezone-gui:
     - '*'
     
 ioreplay:
-  src: ssh://git@git.plgrid.pl:7999/vfs/ioreplay.git
+  src: ssh://git@git.onedata.org:7999/vfs/ioreplay.git
   dst: ssh://git@github.com/onedata/ioreplay.git
   did: /onedata_github
   sid: /onedata_github
@@ -422,7 +422,7 @@ ioreplay:
     - '*'
 
 onedata-gui-common:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata-gui-common.git
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-common.git
   dst: ssh://git@github.com/onedata/onedata-gui-common.git
   did: /onedata_github
   sid: /onedata_github
@@ -433,7 +433,7 @@ onedata-gui-common:
     - '*'
   
 hps-b2handle:
-  src: ssh://git@git.plgrid.pl:7999/vfs/hps-b2handle.git
+  src: ssh://git@git.onedata.org:7999/vfs/hps-b2handle.git
   dst: ssh://git@github.com/onedata/hps-b2handle.git
   did: /onedata_github
   sid: /onedata_github
@@ -443,7 +443,7 @@ hps-b2handle:
     - '*'
 
 fs-onedatafs:
-  src: ssh://git@git.plgrid.pl:7999/vfs/fs-onedatafs.git
+  src: ssh://git@git.onedata.org:7999/vfs/fs-onedatafs.git
   dst: ssh://git@github.com/onedata/fs-onedatafs.git
   did: /onedata_github
   sid: /onedata_github
@@ -457,7 +457,7 @@ fs-onedatafs:
 # Onedata Indigo Github
 
 oneclient-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/oneclient.git
+  src: ssh://git@git.onedata.org:7999/vfs/oneclient.git
   dst: ssh://git@github.com/indigo-dc/oneclient.git
   did: /onedata_github
   sid: /onedata_github
@@ -469,7 +469,7 @@ oneclient-idc:
     - '*'
 
 luma-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/luma.git
+  src: ssh://git@git.onedata.org:7999/vfs/luma.git
   dst: ssh://git@github.com/indigo-dc/luma.git
   did: /onedata_github
   sid: /onedata_github
@@ -481,7 +481,7 @@ luma-idc:
     - '*'
 
 onezone-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onezone.git
+  src: ssh://git@git.onedata.org:7999/vfs/onezone.git
   dst: git@github.com:indigo-dc/onezone.git
   did: /onedata_github
   sid: /onedata_github
@@ -493,7 +493,7 @@ onezone-idc:
     - '*'
 
 onedata-idc:
-  src: ssh://git@git.plgrid.pl:7999/vfs/onedata.git
+  src: ssh://git@git.onedata.org:7999/vfs/onedata.git
   dst: git@github.com:indigo-dc/onedata.git
   did: /onedata_github
   sid: /onedata_github
