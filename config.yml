@@ -466,6 +466,17 @@ onedatafs-jupyter:
   tags:
     - '*'
 
+onedata-deployments:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-deployments.git
+  dst: ssh://git@github.com/onedata/onedata-deployments.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - release/*
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
