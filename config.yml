@@ -221,6 +221,7 @@ onepanel-swagger:
   sid: /onedata_github
   branches:
     - master
+    - develop
     - release/*
   tags:
     - '*'
@@ -232,6 +233,7 @@ oneprovider-swagger:
   sid: /onedata_github
   branches:
     - master
+    - develop
     - release/*
   tags:
     - '*'
@@ -243,6 +245,7 @@ onezone-swagger:
   sid: /onedata_github
   branches:
     - master
+    - develop
     - release/*
   tags:
     - '*'
@@ -311,33 +314,9 @@ ember-cli-onedata-common:
   tags:
     - '*'
 
-oz-gui-default:
-  src: ssh://git@git.onedata.org:7999/vfs/oz-gui-default.git
-  dst: ssh://git@github.com/onedata/oz-gui-default.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-    - develop
-    - release/*
-  tags:
-    - '*'
-
 op-gui-default:
   src: ssh://git@git.onedata.org:7999/vfs/op-gui-default.git
   dst: ssh://git@github.com/onedata/op-gui-default.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-    - develop
-    - release/*
-  tags:
-    - '*'
-
-oz-gui-homepage:
-  src: ssh://git@git.onedata.org:7999/vfs/oz-gui-homepage.git
-  dst: ssh://git@github.com/onedata/oz-gui-homepage.git
   did: /onedata_github
   sid: /onedata_github
   branches:
@@ -374,6 +353,81 @@ docker-openvpn-kube-for-mac:
   sid: /onedata_github
   branches:
     - '*'
+  tags:
+    - '*'
+
+oneprovider-gui:
+  src: ssh://git@git.onedata.org:7999/vfs/oneprovider-gui.git
+  dst: ssh://git@github.com/onedata/oneprovider-gui.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+    
+onepanel-gui:
+  src: ssh://git@git.onedata.org:7999/vfs/onepanel-gui.git
+  dst: ssh://git@github.com/onedata/onepanel-gui.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
+onedata-gui-websocket-client:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-websocket-client.git
+  dst: ssh://git@github.com/onedata/onedata-gui-websocket-client.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
+onedata-acceptance:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-acceptance.git
+  dst: ssh://git@github.com/onedata/onedata-acceptance.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+  tags:
+    - '*'
+
+onedata-gui-icons:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-icons.git
+  dst: ssh://git@github.com/onedata/onedata-gui-icons.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+  tags:
+    - '*'
+
+onedata-gui-utils:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-utils.git
+  dst: ssh://git@github.com/onedata/onedata-gui-utils .git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+  tags:
+    - '*'
+
+onedata-gui-server-mock:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-server-mock.git
+  dst: ssh://git@github.com/onedata/onedata-gui-server-mock.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
   tags:
     - '*'
 
@@ -473,6 +527,30 @@ onedata-deployments:
   sid: /onedata_github
   branches:
     - master
+    - release/*
+  tags:
+    - '*'
+    
+one-env:
+  src: ssh://git@git.onedata.org:7999/vfs/one-env.git
+  dst: ssh://git@github.com/onedata/one-env.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+onezone-gui-plugin-ecrin:
+  src: ssh://git@git.onedata.org:7999/vfs/onezone-gui-plugin-ecrin.git
+  dst: ssh://git@github.com/onedata/onezone-gui-plugin-ecrin.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
     - release/*
   tags:
     - '*'
