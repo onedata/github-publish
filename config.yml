@@ -555,6 +555,18 @@ onezone-gui-plugin-ecrin:
   tags:
     - '*'
 
+compatibility-reference:
+  src: ssh://git@git.onedata.org:7999/vfs/compatibility-reference.git
+  dst: ssh://git@github.com/onedata/compatibility-reference.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
