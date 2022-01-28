@@ -567,6 +567,42 @@ compatibility-reference:
   tags:
     - '*'
 
+onezone-pkg:
+  src: ssh://git@git.onedata.org:7999/vfs/onezone-pkg.git
+  dst: ssh://git@github.com/onedata/onezone-pkg.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+oneprovider-pkg:
+  src: ssh://git@git.onedata.org:7999/vfs/oneprovider-pkg.git
+  dst: ssh://git@github.com/onedata/oneprovider-pkg.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+oneclient-pkg:
+  src: ssh://git@git.onedata.org:7999/vfs/oneclient-pkg.git
+  dst: ssh://git@github.com/onedata/oneclient-pkg.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
