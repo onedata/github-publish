@@ -1,12 +1,12 @@
 github-publish:
   image: groundnuty/github-publish:latest
   autoredeploy: true
-  entrypoint: /bin/loop.sh 
+  entrypoint: /bin/loop.sh
   volumes:
     - "/root/gp/github-publish-tmp-repos:/tmp"
     - "/root/gp/onedata_github:/onedata_github:ro"
     - "/root/gp/id_bamboo:/id_bamboo:ro"
   tags:
-    - gpo_keys 
+    - gpo_keys
   #environment:
   #  ARGS: "--dry-run"

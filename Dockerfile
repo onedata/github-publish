@@ -11,7 +11,7 @@ COPY . /usr/src/app
 
 # The default working of python:* is /usr/src/app, lets change it
 
-# ncurses is to have tput command 
+# ncurses is to have tput command
 RUN apk update && apk add git openssh bash ncurses
 
 ADD config.yml /

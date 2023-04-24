@@ -25,7 +25,7 @@ for problem in problems:
 if not has_problems:
    print('no problems found.')
 
-if found_deduplication: 
+if found_deduplication:
   print("Duplicated entires in config, exitting...")
   sys.exit(-1)
 

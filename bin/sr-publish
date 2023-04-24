@@ -18,7 +18,7 @@ dry_run=0
 verbose_level=0
 
 colors() {
-  if [ -t 1 ] ; then 
+  if [ -t 1 ] ; then
     def_color=$(tput sgr0)
     red=$(tput setaf 1; tput bold)
     green=$(tput setaf 2; tput bold)
@@ -47,15 +47,15 @@ warn() { [[ ${verbose_level:-0} -ge 1 ]] && log "$yellow" " >> " "$@" ; }
 debug() { [[ ${verbose_level:-0} -ge 2 ]] && log "$grey_bold" " >> " "$@" ; }
 info() { [[ ${verbose_level:-0} -ge 3 ]] && log "$grey" " >> " "$@" ; }
 
-message() { 
+message() {
   if [[ ( ${verbose_level:-0} -eq 0 ) && ( $dry_run -eq 0  ) ]] ; then
     if (( ${#@} )); then
-      printf "%s" "$@" 
+      printf "%s" "$@"
     else
-      printf "\n" 
+      printf "\n"
     fi
   else
-    printf " %s\n" "$@" 
+    printf " %s\n" "$@"
   fi
 }
 
@@ -95,7 +95,7 @@ check_repo_command() {
   fi
   (( dry_run )) && return 0
   GIT_SSH_COMMAND="ssh -i $key" git ls-remote --exit-code "$repo" > /dev/null 2>&1 # it throws errors if there is no repo, and that's ok
-} 
+}
 
 clone_command() {
   local key="$1" ; local repo="$2" ; local dir_to_clone_to="$3"
@@ -233,7 +233,7 @@ main() {
   fi
 
   # Check if remote path contains git repo
-  check_repo_command "$dest_key" "$remote_repo" 
+  check_repo_command "$dest_key" "$remote_repo"
   if [[ $? -ne 0  ]] ; then
     die "The remote: $remote_repo is not a git repository!"
   else
@@ -241,7 +241,7 @@ main() {
   fi
 
   # this variable flags if repo will be cloned or just changed will be fetched
-  local need_to_clone 
+  local need_to_clone
 
   info "Checking if source repository path exists on the disk"
   # check if the source directory is local
@@ -257,37 +257,37 @@ main() {
     repo_name=${repo_name##*/} # remove everything execpt part after the last /
 
     message "Repo: $repo_name. "
-    
+
     # if tmpdir is passed we assume that the user want's to cache repos for
     # frequent synch, if not then we create tmpdir and remove it afterwards
     if [[ -z "${tmpdir}" ]]; then
-      # no tmpdir so we create a tmpdir 
+      # no tmpdir so we create a tmpdir
       source_repo_dir=$(mktemp -d)
       info "No --tmpdir flag, using a cache directory $source_repo_dir"
       need_to_clone=1
     else
       source_repo_dir="$tmpdir/$repo_name"
       info "The --tmpdir flag was specified, using a cache directory $source_repo_dir"
-      
+
       info "Checking if cache directory arleady contains a git repo"
       check_repo_command "$src_key" "$source_repo_dir"
       if [[ $? -ne 0 ]]; then
         need_to_clone=1
       fi
     fi
-      
+
     if [[ -n ${need_to_clone} ]]; then
       message "Clonning repo. "
       info "No repo in cachce direstory, cloning source repo into directory $source_repo_dir"
-      # try to clone the repo if its not there     
+      # try to clone the repo if its not there
       debug "$( clone_command "$src_key" "$source_repo" "$source_repo_dir" )"
     else
       message "Fetching changes. "
-      info "There is already repository in $source_repo_dir, fetching changes"   
+      info "There is already repository in $source_repo_dir, fetching changes"
       debug "$( fetch_command "$src_key" "$source_repo_dir" )"
     fi
   fi
-  
+
   ALL_REFSPECS=( "${tags[@]}" "${branches[@]}" )
 
   # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
@@ -311,7 +311,7 @@ main() {
   fi
 
   message "Finished."
-  message 
+  message
 }
 
 

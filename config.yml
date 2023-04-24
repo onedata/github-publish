@@ -366,7 +366,7 @@ oneprovider-gui:
     - develop
   tags:
     - '*'
-    
+
 onepanel-gui:
   src: ssh://git@git.onedata.org:7999/vfs/onepanel-gui.git
   dst: ssh://git@github.com/onedata/onepanel-gui.git
@@ -452,7 +452,7 @@ rest-cli-docker:
     - develop
   tags:
     - '*'
-    
+
 onezone-gui:
   src: ssh://git@git.onedata.org:7999/vfs/onezone-gui.git
   dst: ssh://git@github.com/onedata/onezone-gui.git
@@ -463,7 +463,7 @@ onezone-gui:
     - develop
   tags:
     - '*'
-    
+
 ioreplay:
   src: ssh://git@git.onedata.org:7999/vfs/ioreplay.git
   dst: ssh://git@github.com/onedata/ioreplay.git
@@ -485,7 +485,7 @@ onedata-gui-common:
     - develop
   tags:
     - '*'
-  
+
 hps-b2handle:
   src: ssh://git@git.onedata.org:7999/vfs/hps-b2handle.git
   dst: ssh://git@github.com/onedata/hps-b2handle.git
@@ -530,7 +530,7 @@ onedata-deployments:
     - release/*
   tags:
     - '*'
-    
+
 one-env:
   src: ssh://git@git.onedata.org:7999/vfs/one-env.git
   dst: ssh://git@github.com/onedata/one-env.git
