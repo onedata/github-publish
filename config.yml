@@ -314,18 +314,6 @@ ember-cli-onedata-common:
   tags:
     - '*'
 
-op-gui-default:
-  src: ssh://git@git.onedata.org:7999/vfs/op-gui-default.git
-  dst: ssh://git@github.com/onedata/op-gui-default.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-    - develop
-    - release/*
-  tags:
-    - '*'
-
 docker-volume-onedata:
   src: ssh://git@git.onedata.org:7999/vfs/docker-volume-onedata.git
   dst: ssh://git@github.com/onedata/docker-volume-onedata.git
@@ -594,6 +582,30 @@ oneprovider-pkg:
 oneclient-pkg:
   src: ssh://git@git.onedata.org:7999/vfs/oneclient-pkg.git
   dst: ssh://git@github.com/onedata/oneclient-pkg.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+automation-examples:
+  src: ssh://git@git.onedata.org:7999/vfs/automation-examples.git
+  dst: ssh://git@github.com/onedata/automation-examples.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+harvester-gui-plugin-generic:
+  src: ssh://git@git.onedata.org:7999/vfs/harvester-gui-plugin-generic.git
+  dst: ssh://git@github.com/onedata/harvester-gui-plugin-generic.git
   did: /onedata_github
   sid: /onedata_github
   branches:
