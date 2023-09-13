@@ -604,6 +604,31 @@ harvester-gui-plugin-generic:
   tags:
     - '*'
 
+
+onedatafilerestclient:
+  src: ssh://git@git.onedata.org:7999/vfs/onedatafilerestclient.git
+  dst: ssh://git@github.com/onedata/onedatafilerestclient.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+onedatarestfs:
+  src: ssh://git@git.onedata.org:7999/vfs/onedatarestfs.git
+  dst: ssh://git@github.com/onedata/onedatarestfs.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
