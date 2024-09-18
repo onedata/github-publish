@@ -180,18 +180,6 @@ bamboos:
   tags:
     - '*'
 
-erlang-tls:
-  src: ssh://git@git.onedata.org:7999/vfs/erlang-tls.git
-  dst: ssh://git@github.com/onedata/erlang-tls.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-    - develop
-    - release/*
-  tags:
-    - '*'
-
 docker-ceph-base:
   src: ssh://git@git.onedata.org:7999/vfs/docker-ceph-base.git
   dst: ssh://git@github.com/onedata/docker-ceph-base.git
@@ -288,18 +276,6 @@ homebrew-onedata:
   sid: /onedata_github
   branches:
     - master
-  tags:
-    - '*'
-
-ember-cli-onedata-common:
-  src: ssh://git@git.onedata.org:7999/vfs/ember-cli-onedata-common.git
-  dst: ssh://git@github.com/onedata/ember-cli-onedata-common.git
-  did: /onedata_github
-  sid: /onedata_github
-  branches:
-    - master
-    - develop
-    - release/*
   tags:
     - '*'
 
@@ -626,6 +602,17 @@ onedatarestfs:
     - master
     - develop
     - release/*
+  tags:
+    - '*'
+
+onezone-gui-custom-frontpage:
+  src: ssh://git@git.onedata.org:7999/vfs/onezone-gui-custom-frontpage.git
+  dst: ssh://git@github.com/onedata/onezone-gui-custom-frontpage.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - feature/VFS-12080-customizable-frontpage
   tags:
     - '*'
 
