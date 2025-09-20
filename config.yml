@@ -550,7 +550,7 @@ oneclient-pkg:
   did: /onedata_github
   sid: /onedata_github
   branches:
-    - master
+    - main
     - develop
     - release/*
   tags:
@@ -622,7 +622,7 @@ onedata-errors:
   did: /onedata_github
   sid: /onedata_github
   branches:
-    - master
+    - main
     - develop
     - release/*
   tags:
