@@ -628,6 +628,16 @@ onedata-errors:
   tags:
     - '*'
 
+repository-crawlers:
+  src: ssh://git@git.onedata.org:7999/vfs/repository-crawlers.git
+  dst: ssh://git@github.com/onedata/repository-crawlers.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - '*'
+  tags:
+    - '*'
+
 # Onedata Indigo Github
 
 oneclient-idc:
