@@ -556,6 +556,30 @@ oneclient-pkg:
   tags:
     - '*'
 
+lambda-base:
+  src: ssh://git@git.onedata.org:7999/vfs/lambda-base.git
+  dst: ssh://git@github.com/onedata/lambda-base.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
+onedata-lambda-sdk:
+  src: ssh://git@git.onedata.org:7999/vfs/onedata-lambda-sdk.git
+  dst: ssh://git@github.com/onedata/onedata-lambda-sdk.git
+  did: /onedata_github
+  sid: /onedata_github
+  branches:
+    - master
+    - develop
+    - release/*
+  tags:
+    - '*'
+
 automation-examples:
   src: ssh://git@git.onedata.org:7999/vfs/automation-examples.git
   dst: ssh://git@github.com/onedata/automation-examples.git
@@ -634,7 +658,9 @@ repository-crawlers:
   did: /onedata_github
   sid: /onedata_github
   branches:
-    - '*'
+    - master
+    - develop
+    - release/*
   tags:
     - '*'
 
