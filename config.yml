@@ -457,7 +457,7 @@ fs-onedatafs:
   branches:
     - master
     - develop
-    - release/*1
+    - release/*
   tags:
     - '*'
 
