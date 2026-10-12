@@ -365,7 +365,7 @@ onedata-gui-icons:
 
 onedata-gui-utils:
   src: ssh://git@git.onedata.org:7999/vfs/onedata-gui-utils.git
-  dst: ssh://git@github.com/onedata/onedata-gui-utils .git
+  dst: ssh://git@github.com/onedata/onedata-gui-utils.git
   did: /onedata_github
   sid: /onedata_github
   branches:
@@ -457,7 +457,7 @@ fs-onedatafs:
   branches:
     - master
     - develop
-    - release/*1
+    - release/*
   tags:
     - '*'
 
@@ -658,7 +658,6 @@ repository-crawlers:
   did: /onedata_github
   sid: /onedata_github
   branches:
-    - master
     - develop
     - release/*
   tags:

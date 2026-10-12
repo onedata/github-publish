@@ -65,7 +65,7 @@ die() { error "$@" ; exit 1 ; }
 
 # As the name suggests
 usage() { cat <<EOF
-Usage: sr-publish  [-h] [--dry-run] [-s <path>] [--src-key <path>] [--dest-key <path>] [-b <branches> | -t <tags>] [--tmpdir <path>] -d <path>
+Usage: sr-publish  [-h] [--dry-run] [-s <path>] [--src-key <path>] [--dest-key <path>] [-b <branches> | -t <tags>] [--tmp-dir <path>] -d <path>
 
 This script pushes specyfied git banches and tags from one repo to another.
 
@@ -74,7 +74,7 @@ sr-publish -s ~/my_private_repo https://github.com/me/my_public_repo -b 'master 
 
 Options:
   -h                  Print help
-  -s <path>           Path to source git repository, default is current working directory
+  -s <path>           Path or url to a source git repository
   --src-key <path>    Path to private key, to authenticate with source repo
   -d <path>           Url to a destination git repository
   --dest-key <path>   Path to private key, to authenticate with destination repo
@@ -82,7 +82,7 @@ Options:
   -t <tags>           List of space separated tags from source repostory ex. '1.0.0 2.*'
   --dry-run           Echo git commands that will be invoked without actually executing them
   -v                  Make output more verbose
-  --tmpdir            By default for each cloned source repo a new temp. directory is created. 
+  --tmp-dir           By default for each cloned source repo a new temp. directory is created. 
                       In order to prevent cloning the repo each time the script is run, you can specify the default temporary location. 
                       In that case cloned repo will not be removed by the script at the end the exectution
 EOF
@@ -116,7 +116,7 @@ fetch_command() {
 }
 
 push_command() {
-  local key="$1" ; local dir_with_repo="$2" ; local repo="$3" ; local -n refspecs="$4" ; local push_dry_run=$( if [[ "$4" == "dry-run" ]]; then echo "--dry-run" ; fi )
+  local key="$1" ; local dir_with_repo="$2" ; local repo="$3" ; local -n refspecs="$4" ; local push_dry_run=$( if [[ "$5" == "dry-run" ]]; then echo "--dry-run" ; fi )
   if [[ $dry_run -eq 1 || ${verbose_level:-0} -ge 3 ]]; then 
     echo GIT_SSH_COMMAND="ssh -i $key" git -C "$dir_with_repo" push --progress -f $push_dry_run "$repo" "${refspecs[@]}" 1>&2
   fi
@@ -146,6 +146,9 @@ main() {
   local tmpdir
   local dest_key
   local src_key
+  local push_output
+  local push_failed
+  local created_tmp_dir
   colors
 
   while (( $# )) ; do
@@ -202,7 +205,7 @@ main() {
     esac
     shift
   done
-  if [[ -z ${remote_repo} && -z ${source_repo} ]]; then
+  if [[ -z ${remote_repo} || -z ${source_repo} ]]; then
     die "please specify source and destination repos"
   fi
 
@@ -263,11 +266,12 @@ main() {
     if [[ -z "${tmpdir}" ]]; then
       # no tmpdir so we create a tmpdir
       source_repo_dir=$(mktemp -d)
-      info "No --tmpdir flag, using a cache directory $source_repo_dir"
+      created_tmp_dir=1
+      info "No --tmp-dir flag, using a cache directory $source_repo_dir"
       need_to_clone=1
     else
       source_repo_dir="$tmpdir/$repo_name"
-      info "The --tmpdir flag was specified, using a cache directory $source_repo_dir"
+      info "The --tmp-dir flag was specified, using a cache directory $source_repo_dir"
 
       info "Checking if cache directory arleady contains a git repo"
       check_repo_command "$src_key" "$source_repo_dir"
@@ -300,14 +304,28 @@ main() {
     # push changes from dest_src to dest, we do not care if dist is local or remote (I think)
     info "Pusing changes to the remote repo $remote_repo"
     info "${ALL_REFSPECS[@]}"
-    debug "$( push_command "$dest_key" "$source_repo_dir" "$remote_repo" ALL_REFSPECS )"
+    push_output=$( push_command "$dest_key" "$source_repo_dir" "$remote_repo" ALL_REFSPECS )
+    # a failed push publishes nothing of the repo, so it must not pass for a success
+    if [[ $? -ne 0 ]]; then
+      push_failed=1
+    else
+      debug "$push_output"
+    fi
 
     info "Removing cache directory $source_repo_dir"
   fi
 
-  # if --tmpidr was not specified then lets delete the directory that resulted from mktemp
-  if [[ -z ${tmpdir+x} ]]; then
+  # delete only the directory that resulted from mktemp: a source that is a local
+  # directory is the user's own repo
+  if [[ -n ${created_tmp_dir} ]]; then
     rm -rf "$source_repo_dir"
+  fi
+
+  if [[ -n ${push_failed} ]]; then
+    message "${red}FAILED${def_color}."
+    message
+    error "$push_output"
+    exit 1
   fi
 
   message "Finished."
